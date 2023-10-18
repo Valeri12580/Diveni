@@ -225,6 +225,8 @@ public class JiraServerService implements ProjectManagementProviderOAuth1 {
           userStories.add(
               new UserStory(
                   jsonNode.get("id").textValue(),
+                  null,
+                  null,
                   fields.get("summary").textValue(),
                   fields.get("description").textValue(),
                   estimation,

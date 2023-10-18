@@ -119,6 +119,8 @@ export default Vue.extend({
               userStories: Array<{
                 id: number | null;
                 title: string;
+                key: string | null;
+                url: string | null;
                 description: string;
                 estimation: string | null;
                 isActive: false;

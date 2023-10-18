@@ -259,10 +259,14 @@ export default Vue.extend({
             let title = story.title ? story.title : story.Title;
             let description = story.description ? story.description : story.Description;
             let estimation = story.estimation ? story.estimation : story.Estimation;
+            let key = story.key ? story.key : story.Key;
+            let url = story.url ? story.url : story.Url;
 
             stories.push({
               id: null,
               title: title,
+              key: key,
+              url: url,
               description: description,
               estimation: estimation,
               isActive: false,

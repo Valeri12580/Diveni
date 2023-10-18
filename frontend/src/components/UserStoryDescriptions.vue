@@ -35,9 +35,10 @@
                 publishChanges(idx);
               "
             >
-              {{ num }} 
+              {{ num }}
             </b-dropdown-item>
           </b-dropdown>
+          <b-link target="_blank" class="btn btn-info" v-if="userStories[idx].url !== ''" :href="userStories[idx].url">Issue link</b-link>
         </div>
         <div>
           <markdown-editor
@@ -84,6 +85,8 @@ export default Vue.extend({
       userStories: [] as Array<{
         id: string | null;
         title: string;
+        key: string | null;
+        url: string | null;
         description: string;
         estimation: string | null;
         isActive: boolean;
@@ -100,6 +103,8 @@ export default Vue.extend({
       this.userStories = this.initialStories as Array<{
         id: string | null;
         title: string;
+        key: string | null;
+        url: string | null;
         description: string;
         estimation: string | null;
         isActive: boolean;
@@ -110,6 +115,8 @@ export default Vue.extend({
     this.userStories = this.initialStories as Array<{
       id: string | null;
       title: string;
+      key: string | null;
+      url: string | null;
       description: string;
       estimation: string | null;
       isActive: boolean;
@@ -124,10 +131,13 @@ export default Vue.extend({
       const stories = this.userStories.map((s) => ({
         id: s.id,
         title: s.title,
+        key: s.key,
+        url: s.url,
         description: s.description,
         estimation: s.estimation,
         isActive: false,
       }));
+
       stories[index].isActive = true;
       this.userStories = stories;
       this.publishChanges(index);
@@ -136,6 +146,8 @@ export default Vue.extend({
       this.userStories.push({
         id: null,
         title: "",
+        key: "",
+        url: "",
         description: "",
         estimation: null,
         isActive: false,

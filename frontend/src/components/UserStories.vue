@@ -136,6 +136,8 @@ export default Vue.extend({
       const story: UserStory = {
         id: null,
         title: "",
+        key: "",
+        url: "",
         description: "",
         estimation: null,
         isActive: false,
@@ -180,6 +182,8 @@ export default Vue.extend({
       const stories = this.userStories.map((s) => ({
         id: s.id,
         title: s.title,
+        key: s.key,
+        url: s.url,
         description: s.description,
         estimation: s.estimation,
         isActive: false,

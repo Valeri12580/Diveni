@@ -172,6 +172,8 @@ public class AzureDevOpsService implements ProjectManagementProviderOAuth2 {
         userStories.add(
             new UserStory(
                 detailedIssue.get("id").asText(),
+                null,
+                null,
                 fields.get(API_FIELD_TITLE).textValue(),
                 description,
                 estimation,

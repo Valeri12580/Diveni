@@ -16,6 +16,10 @@ public class UserStory {
 
   final String id;
 
+  final String key;
+
+  final String url;
+
   final String title;
 
   final String description;
