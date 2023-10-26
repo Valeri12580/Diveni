@@ -18,6 +18,12 @@
           class="my-1" />
       </li>
       <li>
+        {{$t("session.prepare.step.selection.mode.description.withIssueTracker.selectSite")}}
+        <site-selection-comp
+        v-if="isLoggedInWithJira" class="my-1">
+        </site-selection-comp>
+      </li>
+      <li>
         {{ $t("session.prepare.step.selection.mode.description.withIssueTracker.descriptionLine2") }}
         <project-selection-component
           v-if="isLoggedInWithJira"
@@ -41,10 +47,12 @@ import SignInWithJiraServerButtonComponent from "./SignInWithJiraServerButtonCom
 import SignInWithAzureCloudButtonComponent from "./SignInWithAzureDevOpsButtonComponent.vue";
 import ProjectSelectionComponent from "./ProjectSelectionComponent.vue";
 import apiService from "@/services/api.service";
+import SiteSelectionComp from "@/components/SiteSelectionComp.vue";
 
 export default Vue.extend({
   name: "JiraComponent",
   components: {
+    SiteSelectionComp,
     SignInWithJiraCloudButtonComponent,
     SignInWithJiraServerButtonComponent,
     SignInWithAzureCloudButtonComponent,
@@ -70,9 +78,9 @@ export default Vue.extend({
     getTokenId: {
       handler(newVal) {
         if (newVal) {
-          apiService.getAllProjects().then((pr) => {
-            this.$store.commit("setProjects", pr);
-          });
+          apiService.getAllSites().then((sites)=>{
+            this.$store.commit("setSites",sites)
+          })
           this.$toast.success("Logged in");
         }
       },

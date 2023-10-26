@@ -30,5 +30,11 @@ public class ErrorMessages {
 
   public static String failedToRetrieveUsernameErrorMessage = "failed to retrieve current user";
 
+  public static String missingSiteUrl = "missing site url in query param";
+
+  public static String wrongSiteParamLength = "only one site can be included in the query param";
+
+  public static String resourceNotFound = "Failed to find resource matching the criteria";
+
   private ErrorMessages() {}
 }

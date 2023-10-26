@@ -13,6 +13,8 @@ export interface StoreState {
   tokenId: string | undefined;
   projects: Record<string, unknown>[];
   selectedProject: Project | undefined;
+  sites: string[];
+  selectedSite: string | undefined
   selectedUserStoryIndex: number | undefined;
 }
 

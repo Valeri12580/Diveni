@@ -19,6 +19,8 @@ export default new Vuex.Store<StoreState>({
     tokenId: undefined,
     projects: [],
     selectedProject: undefined,
+    sites: [],
+    selectedSite:undefined,
     selectedUserStoryIndex: undefined,
   },
   mutations: {
@@ -98,6 +100,12 @@ export default new Vuex.Store<StoreState>({
     },
     setProjects(state, projects) {
       state.projects = projects;
+    },
+    setSelectedSite(state, site){
+      state.selectedSite = site;
+    },
+    setSites(state, sites){
+      state.sites = sites;
     },
     setUserStories(state, { stories }) {
       state.userStories = stories;

@@ -55,8 +55,17 @@ class ApiService {
     return response.data;
   }
 
-  public async getAllProjects(): Promise<unknown> {
-    const response = await axios.get(`${constants.backendURL}/issue-tracker/projects`);
+  public async getAllProjects(site: string): Promise<unknown> {
+    const response = await axios.get(`${constants.backendURL}/issue-tracker/projects`,{
+      params: {
+        site: site
+      }
+    });
+    return response.data;
+  }
+
+  public async getAllSites():Promise<string>{
+    const response = await axios.get(`${constants.backendURL}/issue-tracker/sites`)
     return response.data;
   }
 

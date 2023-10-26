@@ -89,7 +89,7 @@ public class AzureDevOpsService implements ProjectManagementProviderOAuth2 {
   }
 
   @Override
-  public List<Project> getProjects(String tokenIdentifier) {
+  public List<Project> getProjects(String tokenIdentifier, Map<String, String[]> reqParams) {
     LOGGER.debug("--> getProjects()");
     try {
       List<Project> projects = new ArrayList<>();
@@ -111,6 +111,11 @@ public class AzureDevOpsService implements ProjectManagementProviderOAuth2 {
       throw new ResponseStatusException(
           HttpStatus.INTERNAL_SERVER_ERROR, ErrorMessages.failedToRetrieveProjectsErrorMessage);
     }
+  }
+
+  @Override
+  public List<String> getSites(String tokenIdentifier) {
+    return null;
   }
 
   @Override

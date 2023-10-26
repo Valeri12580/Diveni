@@ -6,6 +6,7 @@
 package io.diveni.backend.service.projectmanagementproviders;
 
 import java.util.List;
+import java.util.Map;
 
 import io.diveni.backend.model.Project;
 import io.diveni.backend.model.UserStory;
@@ -13,7 +14,9 @@ import io.diveni.backend.model.UserStory;
 public interface ProjectManagementProvider {
   boolean serviceEnabled();
 
-  List<Project> getProjects(String tokenIdentifier);
+  List<Project> getProjects(String tokenIdentifier, Map<String, String[]> reqParams);
+
+  List<String>getSites(String tokenIdentifier);
 
   List<UserStory> getIssues(String tokenIdentifier, String projectName);
 

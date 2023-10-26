@@ -34,7 +34,7 @@ class AzureDevOpsServiceTest {
         .when(azureDevOpsService)
         .executeRequest(any(), any(), any(), any());
 
-    List<Project> projectList = azureDevOpsService.getProjects("accessToken");
+    List<Project> projectList = azureDevOpsService.getProjects("accessToken", null);
     Assertions.assertEquals(3, projectList.size());
 
     Assertions.assertEquals("1", projectList.get(0).getId());
