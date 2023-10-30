@@ -15,14 +15,14 @@
       </li>
       <li>
         {{$t("session.prepare.step.selection.mode.description.withIssueTracker.selectSite")}}
-        <site-selection-comp
+        <site-selection-comp @site-selected="handleSiteSelected"
         v-if="isLoggedInWithJira" class="my-1">
         </site-selection-comp>
       </li>
       <li>
         {{ $t("session.prepare.step.selection.mode.description.withIssueTracker.descriptionLine2") }}
-        <project-selection-component
-          v-if="isLoggedInWithJira"
+        <project-selection-component ref="projectSelection"
+          v-if="isLoggedInWithJira && isSiteSelected"
           class="my-1"
         ></project-selection-component>
       </li>
@@ -73,6 +73,16 @@ export default Vue.extend({
     isLoggedInWithJira() {
       return !!this.$store.state.tokenId;
     },
+    isSiteSelected(){
+      return this.$store.state.selectedSite
+    }
+  },
+  methods:{
+    handleSiteSelected() {
+      if(this.$refs.projectSelection){
+        (this.$refs.projectSelection as any).clearSelection()
+      }
+    }
   },
   watch: {
     getTokenId: {

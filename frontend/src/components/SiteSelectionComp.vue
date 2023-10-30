@@ -32,9 +32,10 @@ export default defineComponent({
   methods: {
     async getProjects() {
       console.log(this.selected)
-     this.$store.commit("setSelectedSite", this.selected)
-      apiService.getAllProjects(this.selected).then((pr) => {
-        this.$store.commit("setProjects", pr);
+      this.$store.commit("setSelectedSite", this.selected)
+      this.$emit('site-selected');
+       apiService.getAllProjects(this.selected).then((pr) => {
+         this.$store.commit("setProjects", pr);
       });
     },
   }

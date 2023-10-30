@@ -1,6 +1,6 @@
 <template>
   <div>
-    <autocomplete
+    <autocomplete ref="projectselect"
       v-model="selected"
       :items="getProjectNames"
       :placeholder="
@@ -64,6 +64,10 @@ export default Vue.extend({
         this.$store.commit("setUserStories", { stories: response });
       }
     },
+    clearSelection(){
+      this.selected = null;
+      this.aCorrectProject = false;
+    }
   },
 });
 </script>

@@ -163,7 +163,7 @@ public class ProjectManagementController {
         } else {
             response =
                     new ResponseEntity<>(
-                            projectManagementProvider.getProjects(tokenIdentifier,reqParams), HttpStatus.OK);
+                            projectManagementProvider.getProjects(tokenIdentifier, reqParams), HttpStatus.OK);
         }
         LOGGER.debug("<-- getProjects()");
         return response;
