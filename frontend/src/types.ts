@@ -18,6 +18,7 @@ export interface StoreState {
   sites: string[];
   selectedSite: string | undefined
   selectedUserStoryIndex: number | undefined;
+  autoReveal: boolean;
 }
 
 export interface JiraRequestTokenDto {
